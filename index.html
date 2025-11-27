@@ -138,13 +138,20 @@
 <body>
 <!-- Ejemplo de iframe configurado correctamente -->
 <iframe 
-  src="sistemas.pdf" 
+  id="pdfViewer"
+  src="sistemas.pdf.pdf" 
   width="100%" 
   height="600px"
-  type="application/pdf"
 >
-  <p>Tu navegador no soporta PDFs. <a href="sistemas.pdf">Descargar PDF</a></p>
 </iframe>
+
+<script>
+  // Detectar si es móvil y mostrar enlace en lugar del iframe
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.getElementById('pdfViewer').style.display = 'none';
+    document.body.innerHTML += '<a href="sistemas.pdf" style="display: block; padding: 20px; text-align: center; background: #007acc; color: white; text-decoration: none; font-size: 18px;">Abrir PDF</a>';
+  }
+</script>
 <header>
     <h1>¿QUÉ ES EL ACOSO ESCOLAR Y POR QUÉ IMPORTA?</h1>
 </header>
